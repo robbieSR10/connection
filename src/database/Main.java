@@ -6,20 +6,17 @@ import java.sql.Statement;
 
 public class Main {
     public static void main(String[] args) {
-       final String DB_URL ="jdbc:mysql://localhost:3306/ideas";
-       final String USERNAME = "root";
-       final String PASSWORD ="13d53a?sheet";
 
        Connection conn =null;
        Statement stmt =null;
 
        try{
-           conn = DriverManager.getConnection(DB_URL,USERNAME, PASSWORD);
+           conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/ideas","root","KR1fH2Fy");
            System.out.println("connection succesful");
 
            stmt = conn.createStatement();
-           String sql = "INSERT INTO idea(name,)" +
-                        "VALUES('sara')";
+           String sql = "INSERT INTO idea (name,suggestion)" +
+                        "VALUES('Warinda', '4-3-3')";
             stmt.executeUpdate(sql);
             System.out.println("Idea submitted! ");           
        }catch(Exception e){
